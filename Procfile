@@ -1,1 +1,1 @@
-web: gunicorn traveluxe.wsgi
+web: gunicorn traveluxe2.wsgi
