@@ -16,7 +16,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    likes = models.ManyToManyField(User, related_name='market_likes', blank=True)
 #    listing_price = models.TextField()
 
     class Meta:

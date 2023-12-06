@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('created_on', models.DateTimeField(auto_now=True)),
                 ('status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Published')], default=0)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='market_posts', to=settings.AUTH_USER_MODEL)),
-                ('likes', models.ManyToManyField(blank=True, related_name='blog_likes', to=settings.AUTH_USER_MODEL)),
+                ('likes', models.ManyToManyField(blank=True, related_name='market_likes', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['created_on'],
