@@ -1,9 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.core.validators import RegexValidator
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+PRICE_INCREMENT = (("p/w", "per week"), ("p/m", "per month"))
+
+PRICE_CURRENCY = (("£", "GBP"), ("$", "USD"), ("€", "Euro"), ("¥", "Yen"), ("₩", "Won"), ("₺", "Lira"), ("₣", "Franc"), ("₹", "Rupee"), ("د.ك", "Dinar"))
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -17,7 +21,12 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='market_likes', blank=True)
-#    listing_price = models.TextField()
+    listing_price = models.CharField(
+        max_length=15,
+        validators=[RegexValidator("^[0-9]")],
+        )
+    listing_currency = models.CharField(max_length=100, choices=PRICE_CURRENCY, default="GBP")
+    listing_timespan = models.CharField(max_length=100, choices=PRICE_INCREMENT, default="per month")
 
     class Meta:
         ordering = ['created_on']
@@ -36,7 +45,6 @@ class Comment(models.Model):
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
-#    listing_price = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 

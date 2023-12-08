@@ -31,7 +31,10 @@
               </a>
               <hr />
               <p class="card-text text-muted h6">
-                {{ post.created_on}} <i class="far fa-heart"></i> {{post.number_of_likes }}
+                {{ post.created_on }} <i class="far fa-heart"></i> {{ post.number_of_likes }}
+              </p>
+              <p class="card-text text-muted h6">
+                {{ post.listing_currency.choices }}{{ post.listing_price }} {{ post.listing_timespan.choices }} <i class="fa-solid fa-fire"></i>
               </p>
             </div>
           </div>
