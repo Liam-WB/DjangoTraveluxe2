@@ -34,14 +34,16 @@
                 {{ post.created_on }} <i class="far fa-heart"></i> {{ post.number_of_likes }}
               </p>
               <p class="card-text text-muted h6">
-                {{ post.listing_currency.choices }}{{ post.listing_price }} {{ post.listing_timespan.choices }} <i class="fa-solid fa-fire"></i>
+                {{ post.listing_currency }}{{ post.listing_price }} {{ post.listing_timespan }}
               </p>
             </div>
           </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
       </div>
-      <div class="row">{% endif %} {% endfor %}</div>
+      <div class="row">
+        {% endif %}
+         {% endfor %}</div>
     </div>
   </div>
   {% if is_paginated %}
