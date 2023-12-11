@@ -12,7 +12,6 @@
               <div class="image-container">
                 {% if "placeholder" in post.featured_image.url %}
                 <img
-                  class="card-img-top"
                   src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
                 />
                 {% else %}
@@ -22,7 +21,10 @@
                 />
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ post.author }}</p>
+                  <p class="author">Host: {{ post.author }}</p>
+                </div>
+                <div class="price-flash">
+                    <p class="price">{{ post.listing_currency }}{{ post.listing_price }} {{ post.listing_timespan }}</p>
                 </div>
               </div>
               <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -33,9 +35,7 @@
               <p class="card-text text-muted h6">
                 {{ post.created_on }} <i class="far fa-heart"></i> {{ post.number_of_likes }}
               </p>
-              <p class="card-text text-muted h6">
-                {{ post.listing_currency }}{{ post.listing_price }} {{ post.listing_timespan }}
-              </p>
+              <p class="card-text text-muted h6"></p>
             </div>
           </div>
         </div>

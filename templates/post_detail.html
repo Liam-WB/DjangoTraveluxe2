@@ -5,19 +5,19 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-none d-md-block col-md-12 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
+                <div class="col-md-5 masthead-text">
+                    <!-- Post title goes in these h1 tags -->
+                    <h1 class="post-title">{{ post.title }}</h1>
+                    <!-- Post author goes before the | the post's created date goes after -->
+                    <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -50,9 +50,6 @@
                             {% endif %}
                         <!-- The number of likes goes before the closing strong tag -->
                         <span class="text-secondary">{{ post.number_of_likes }} </span>
-                        <span class="text-secondary">
-                            {{ post.listing_currency }}{{ post.listing_price }} {{ post.listing_timespan }}
-                        </span>
                         </strong>
                     </div>
                     <div class="col-1">
@@ -61,6 +58,9 @@
                             <!-- Our total_comments variable goes before the closing strong tag -->
                             {{ total_comments }}</strong>
                         {% endwith %}
+                    </div>
+                    <div class="col-2">
+                        {{ post.listing_currency }}{{ post.listing_price }} {{ post.listing_timespan }}
                     </div>
                 </div>
             </div>
