@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.views.generic.edit import CreateView
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -75,3 +76,8 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+class PostCreate(CreateView):
+    model = Post
+    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status')
+    template_name = "post_form.html"

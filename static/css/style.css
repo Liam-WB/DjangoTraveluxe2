@@ -138,3 +138,13 @@ body {
     background: transparent;
     border: none;
 }
+
+.about-container {
+    background-color: #E84610;
+}
+
+.icons {
+    text-decoration: none;
+    font-size: larger;
+    color: white;
+}
