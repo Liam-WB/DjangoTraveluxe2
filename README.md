@@ -141,3 +141,29 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 The Traveluxe Website boasts an aesthetic, visually pleasing design, greeting new and returning users with two tone UI (navy blue to white contrast) for easy readability and a simple yet effective and consistent logo incorporating a Luxury and classy font with influences of European early modern printing. The navigation bar however, uses a modern, more rounded and more visible font when smaller fitted with text highlighting to allow for easy navigation. The footer follows the same design and is fitted with icons that also highlight when the cursor is hovering on them, for easier visibility, and all text in the footer is centered for practicality.
 
 ### Colour Scheme
+
+![Colour](md_images/Colour.png)
+
+* I used a dark shade of red (#E84610) for the links.
+* I used light and dark green for the post property rent price tags: rgba(10, 136, 10, 0.6), rgb(24, 202, 0).
+
+### Property Images
+
+Property images were sourced from different sites including free copyright generic picture generators and AI generators.
+
+### Logo
+
+Logo was created with generic logo creator [BrandCrowd](https://www.brandcrowd.com).
+
+### Typography
+
+The "Voga" font and regular bootstrap sans serif font were used for this project.
+
+### Wireframes
+
+![ss1](md_images/ss1.png)
+![ss2](md_images/ss2.png)
+![ss3](md_images/ss3.png)
+![ss4](md_images/ss4.png)
+![ss5](md_images/ss5.png)
+![ss6](md_images/ss6.png)
