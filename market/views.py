@@ -4,6 +4,10 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from market.models import Author
+from django.urls import reverse_lazy
+
 
 
 class PostList(generic.ListView):
@@ -79,5 +83,15 @@ class PostLike(View):
 
 class PostCreate(CreateView):
     model = Post
-    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status')
+    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status', 'slug', 'author')
     template_name = "post_form.html"
+    success_url = reverse_lazy('home')
+
+
+class AuthorCreateView(LoginRequiredMixin, CreateView):
+    model = Author
+    fields = ["name"]
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)

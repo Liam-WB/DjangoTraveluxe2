@@ -28,6 +28,8 @@ body {
 
 .image-container {
     position: relative;
+    overflow: hidden;
+    max-height: 350px;
 }
 
 .image-flash {
