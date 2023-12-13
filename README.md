@@ -141,4 +141,3 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 The Traveluxe Website boasts an aesthetic, visually pleasing design, greeting new and returning users with two tone UI (navy blue to white contrast) for easy readability and a simple yet effective and consistent logo incorporating a Luxury and classy font with influences of European early modern printing. The navigation bar however, uses a modern, more rounded and more visible font when smaller fitted with text highlighting to allow for easy navigation. The footer follows the same design and is fitted with icons that also highlight when the cursor is hovering on them, for easier visibility, and all text in the footer is centered for practicality.
 
 ### Colour Scheme
-
