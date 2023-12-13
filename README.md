@@ -59,3 +59,77 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 * User stories were made by looking at these epics, and again based on the project's timeline and progress.
 * The project Board was used to track progression of the task through the Todo, In progress and Done columns.
 * The project Board ias set to public at the end.
+
+<details>
+<summary>Agile Methodology Images</summary>
+<br>
+![User Stories Template](md_images/Template.png)
+![Issues](md_images/Issues.png)
+![Project Board](md_images/Project.png)
+</details>
+
+## User Stories
+
+### Epics
+
+* Initial Deployment
+* Home Page
+* User Registration
+* Website Admin, Posts
+* Post Likes, Comments
+* Maintain consistent design with responsiveness in mind
+
+### Issues/User Stories
+
+* Site Pagination
+* View Post List
+* Open a Post
+* View Likes
+* View Comments
+* Account Registration
+* Comment on a Post
+* Like/Unlike
+* Manage Posts
+* Create Drafts
+* Approve Comments
+* View Listing Price
+* Edit Listing Price
+* Create/Delete Posts
+
+[GitHub Project link](https://github.com/Liam-WB/DjangoTraveluxe2)
+[Project Board link](https://github.com/users/Liam-WB/projects/7/views/1)
+
+## Target Audience
+
+* People looking for a getaway spot, whilst having the chance to casually get in touch with the propety owner.
+* People looking for recommendations on good travel spots/afforable alternatives to a hotel.
+* People looking for a good travel location for family/friends.
+* People who value a captivating and positive visual online experience.
+* Travel enthusiasts, interested in seeing how others live.
+* Explorerers of any category, looking for something new.
+* Couples looking for a romantic getaway, or time away from their home.
+* Friends of family or friends or friends looking to get their friend a nice vacation.
+
+## First Time User
+
+* Intuitive and coherent website navigation for easy exploration and involvement.
+* Immersive visuals showcasing the beauty of people's home's/properties as well as an aesthetic UI to match.
+* Informative content providing an overview of posts, details or their subject properties and comment/like features to be involved in the conversation.
+* User-friendly forms with clear validation messages to ensure accurate input.
+* Simple Registration process.
+
+## Registered User
+
+* A seamless login process with a secure and personalised user social account.
+* Browsing available retreats/homes.
+* Access to a tailored dashboard showing all formatted posts and their detaile, in order of the date and time of update.
+* Ability to modify/create posts made.
+  
+## Admin user
+  
+* Secure and separate login portal for admin users with appropriate access control.
+* Access to an admin dashboard for managing posts, comments, likes, users and social accounts.
+* CRUD functionality in the form of the ability to add, add to, remove, remove from and morify the above listed categories.
+* Management/filtering of content and approval of comments to control conversation subjects and approprieteness.
+* Ability to delete user accounts, providing the necessary control for managing user data and accounts.
+* Management of post creation, including the ability to view and modify.
