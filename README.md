@@ -63,9 +63,11 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 <details>
 <summary>Agile Methodology Images</summary>
 <br>
-![User Stories Template](md_images/Template.png)
+
+![Template](md_images/Template.png)
 ![Issues](md_images/Issues.png)
-![Project Board](md_images/Project.png)
+![Project](md_images/Project.png)
+
 </details>
 
 ## User Stories
@@ -99,7 +101,7 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 [GitHub Project link](https://github.com/Liam-WB/DjangoTraveluxe2)
 [Project Board link](https://github.com/users/Liam-WB/projects/7/views/1)
 
-## Target Audience
+### Target Audience
 
 * People looking for a getaway spot, whilst having the chance to casually get in touch with the propety owner.
 * People looking for recommendations on good travel spots/afforable alternatives to a hotel.
@@ -110,7 +112,7 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 * Couples looking for a romantic getaway, or time away from their home.
 * Friends of family or friends or friends looking to get their friend a nice vacation.
 
-## First Time User
+### First Time User
 
 * Intuitive and coherent website navigation for easy exploration and involvement.
 * Immersive visuals showcasing the beauty of people's home's/properties as well as an aesthetic UI to match.
@@ -118,14 +120,14 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 * User-friendly forms with clear validation messages to ensure accurate input.
 * Simple Registration process.
 
-## Registered User
+### Registered User
 
 * A seamless login process with a secure and personalised user social account.
 * Browsing available retreats/homes.
 * Access to a tailored dashboard showing all formatted posts and their detaile, in order of the date and time of update.
 * Ability to modify/create posts made.
   
-## Admin user
+### Admin user
   
 * Secure and separate login portal for admin users with appropriate access control.
 * Access to an admin dashboard for managing posts, comments, likes, users and social accounts.
@@ -133,3 +135,10 @@ Agile methodolgy was used frequently, to help create a clean, organised and well
 * Management/filtering of content and approval of comments to control conversation subjects and approprieteness.
 * Ability to delete user accounts, providing the necessary control for managing user data and accounts.
 * Management of post creation, including the ability to view and modify.
+
+## Design
+
+The Traveluxe Website boasts an aesthetic, visually pleasing design, greeting new and returning users with two tone UI (navy blue to white contrast) for easy readability and a simple yet effective and consistent logo incorporating a Luxury and classy font with influences of European early modern printing. The navigation bar however, uses a modern, more rounded and more visible font when smaller fitted with text highlighting to allow for easy navigation. The footer follows the same design and is fitted with icons that also highlight when the cursor is hovering on them, for easier visibility, and all text in the footer is centered for practicality.
+
+### Colour Scheme
+
