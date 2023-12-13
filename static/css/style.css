@@ -150,3 +150,13 @@ body {
     font-size: larger;
     color: white;
 }
+
+.form-container {
+    background-color: #0d132b;
+}
+
+.form-spacer {
+    background-color: #0d132b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

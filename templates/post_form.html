@@ -1,12 +1,20 @@
 {% extends "base.html" %} {% block content %}
-<form method="POST" enctype="multipart/form-data">
+<div class="h-5 d-inline-block"></div>
+    <div class="col-10 offset-md-1 d-flex justify-content-center form-spacer">
+        <div class="col-9 text-white form-container">
+            <div class="h-20 d-inline-block"></div>
+            <form method="POST" enctype="multipart/form-data">
  
-    <!-- Security token -->
-    {% csrf_token %}
- 
-    <!-- Using the formset -->
-    {{ form.as_p }}
+                <!-- Security token -->
+                {% csrf_token %}
      
-    <input type="submit" value="Submit">
-</form>
+                <!-- Using the formset -->
+                {{ form.as_p }}
+         
+                <input type="submit" value="Submit">
+            </form>
+            <div class="h-20 d-inline-block"></div>
+        </div>
+    </div>
+<div class="h-5 d-inline-block"></div>
 {%endblock%}
