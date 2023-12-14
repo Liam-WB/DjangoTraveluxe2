@@ -198,7 +198,7 @@ This model was made solely for the CreateView form as the author ID would clash 
 
 ![Flowchart](md_images/flowchart.png)
 
-### Traveluxe entitu relationship diagram
+### Traveluxe entity relationship diagram
 
 ![ERD](md_images/ERD.png)
 
@@ -235,6 +235,7 @@ The post_form view validates form input using the form_valid class located in th
 Error pages are returned if a request is not successfully recieved.
 
 ## Features
+
 * The home page contains a tailored navbar made with bootstrap html, to adjust to all devices and switch to a pop-out navbar when device screen size reqches a certain size.
 * The website features a comprehensive list of posts accompanied by detailed descriptions for each one.
 * User can make an account and login.
@@ -379,3 +380,90 @@ Live deployment link for Traveluxe can be found [here](https://traveluxe2-d0488e
 ### ElephantSQL Database
 
 [Traveluxe](https://traveluxe2-d0488e7a8b6f.herokuapp.com/) uses [ElephantSQL](https://www.elephantsql.com/) PostgreSQL Database.
+
+1. Click Create New Instance to start a new database.
+2. Provide a name (this is commonly the name of the project: tribe).
+3. Select the Tiny Turtle (Free) plan.
+4. You can leave the Tags blank.
+5. Select the Region and Data Center closest to you.
+6. Once created, click on the new database name, where you can view the database URL and Password.
+
+### Cloudinary
+
+[Traveluxe](https://traveluxe2-d0488e7a8b6f.herokuapp.com/) uses [Cloudinary](https://cloudinary.com/)
+
+1. For Primary interest, you can choose Programmable Media for image and video API.
+2. Optional: edit your assigned cloud name to something more memorable.
+3. On your Cloudinary Dashboard, you can copy your API Environment Variable.
+4. Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
+
+### Heroku Deployment
+
+1. Log into Heroku account or create an account.
+2. Click the "New" button at the top right corner and select "Create New App".
+3. Enter a unique application name
+4. Select your region
+5. Click "Create App"
+
+#### Prepare enviroment and settings.py
+
+6. In your GitPod workspace, create an env.py file in the main directory.
+7. Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+8. Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+9. Comment out the default database configuration.
+10. Save all files and make migrations.
+11. Add the Cloudinary URL to env.py
+12. Add the Cloudinary libraries to the list of installed apps.
+13. Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+14. Link the file to the templates directory in Heroku.
+15. Change the templates directory to TEMPLATES_DIR
+16. Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+    
+#### 17. Add the following Config Vars in Heroku:
+
+* SECRET_KEY - This can be any Django random secret key
+* CLOUDINARY_URL - Insert your own Cloudinary API key
+* PORT = 8000
+* DISABLE_COLLECTSTATIC = 1 - this is temporary, and can be removed for the final deployment
+* DATABASE_URL - Insert your own ElephantSQL database URL here
+
+#### Heroku needs two additional files to deploy properly
+
+* requirements.txt
+* Procfile
+
+#### Deploy
+
+1. Make sure DEBUG = False in the settings.py
+2. Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+3. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the GitHub repository is updated.
+4. Click 'Open App' to view the deployed live site.
+
+The site is now live.
+
+## Testing
+
+Please see [TESTS.md] for all the detailed testing performed.
+
+## References
+
+### Docs
+
+* Stack Overflow
+* Code Institute
+* Bootstrap 4.6
+* Django docs
+* Django Allauth
+* Django and Static Assets
+* Cloudinary
+* Google
+* Django Summernote
+
+### Content
+
+* All of the content is imaginary and written by the developer, myself, Liam Wartner Blake.
+
+### Acknowledgments
+
+* I would also like to extend my appreciation to the Slack community for their continuous engagement and willingness to share knowledge. The collaborative environment provided a platform for learning, troubleshooting, and gaining inspiration from fellow developers.
+* I would like to thank the tutors of Code Institute for their assistance in answering/helping me understand any code related questions, and guiding me throughout the project creation.
