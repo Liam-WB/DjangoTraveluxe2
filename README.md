@@ -318,3 +318,64 @@ Error pages are returned if a request is not successfully recieved.
 * Contact, about us sections.
 * A related payment system to allow for these posts to create real relationships between business/hosts and customers/guests.
 * These features were not a priority for the project completion.
+
+## Technologies Used
+
+### Languages Used
+
+* HTML
+* CSS
+* JavaScript
+* Python
+
+### Databases Used
+
+* ElephantSQL - Postgres database
+* Cloudinary - Online static file storage
+
+### Frameworks Used
+* Django - Python framework
+* Bootstrap 4.6.1 - CSS framework
+
+### Programs Used
+
+* Github - Storing the code online
+* Codeanywhere - For writing the code.
+* Heroku - Used as the cloud-based platform to deploy the site.
+* Google Fonts - Finding the right fonts for this website.
+* Balsamiq - Used to create wireframes and schemes
+* Brandcrowd - For creating the logo.
+* Am I Responsive - To show the website image on a range of devices.
+* Git - Version control
+* Favicon Generator - Used to create a favicon
+* JSHint - Used to validate JavaScript
+* W3C Markup Validation Service - Used to validate HTML
+* CSS Validation Service - Used to validate CSS
+* CI Python Linter - Used to validate Python
+* Coolors - To create a colour palette
+
+## Deployment and Local Developement
+
+Live deployment link for Traveluxe can be found [here](https://traveluxe2-d0488e7a8b6f.herokuapp.com/).
+
+### Local Developement
+
+#### How to Fork
+
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project Woodland Whispers Retreat
+3. Click the fork button in the top right corner
+
+#### How to Clone
+
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project Woodland Whispers Retreat
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+7. Install the packages from the requirements.txt file - run Command pip3 install -r requirements.txt
+
+### ElephantSQL Database
+
+[Traveluxe](https://traveluxe2-d0488e7a8b6f.herokuapp.com/) uses [ElephantSQL](https://www.elephantsql.com/) PostgreSQL Database.
