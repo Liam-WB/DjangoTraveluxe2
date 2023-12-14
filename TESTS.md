@@ -15,16 +15,16 @@ Comprehensive testing has been done to ensure that the website's functions and f
 ### Device Tests
 
 ### Code Validation
-## * HTML Validation
-## * CSS Validation
-## * JavaScript Validation
-## * Python
+#### HTML Validation
+#### CSS Validation
+#### JavaScript Validation
+#### Python
 
 ### Lighthouse Report
 
 ### Bugs
-## * Resolved Bugs
-## * Unresolved Bugs
+#### Resolved Bugs
+#### Unresolved Bugs
 
 ### Features Tests
 
