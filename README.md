@@ -166,4 +166,30 @@ The "Voga" font and regular bootstrap sans serif font were used for this project
 ![ss3](md_images/ss3.png)
 ![ss4](md_images/ss4.png)
 ![ss5](md_images/ss5.png)
-![ss6](md_images/ss6.png)
+
+### Data Models
+
+1. Post Model
+
+This model was created for giving the posts datasets and values that can be manipulated with CRUD functionality. Some of these fields can only be manipulated in the admin page. The posts themselves are formatted in a 'Post List' to allow the user to view them in a paginated format. They were given the following fields:
+* 'title'
+* 'content'
+* 'featured_image'
+* 'excerpt'
+* 'listing_currency'
+* 'listing_timespan'
+* 'listing_price'
+* 'status'
+* 'slug'
+* 'author'
+---
+
+1. Post Comment Model
+
+The Comment Model was created to add more functionality to the comments written by returning users and site users, as well as to filter their visibility and what can be done with them by users/admins.
+---
+
+3. CreateView Author Model
+
+This model was made solely for the CreateView form as the author ID would clash with the author field User ID leading to an error without this model and the form would not validate.
+---
