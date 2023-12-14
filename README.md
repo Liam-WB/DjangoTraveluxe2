@@ -193,3 +193,52 @@ The Comment Model was created to add more functionality to the comments written 
 
 This model was made solely for the CreateView form as the author ID would clash with the author field User ID leading to an error without this model and the form would not validate.
 ---
+
+### User journey
+
+![Flowchart](md_images/flowchart.png)
+
+### Traveluxe entitu relationship diagram
+
+![ERD](md_images/ERD.png)
+
+* As shown above the post model contains most of the fields as it is the largest and most frequently used data model.
+* Most of the CharFields and TextFields are for the site user/admin to modify, to give the post individuality and will give a value to the related name.
+* featured_image uses the cloudinary_field as cloudinary is holding and storing images like our logo and placeholder image, if the user decides to leave their post image section blank.
+* The likes field is updated depending on the user id.
+* The comment model is made to hold its fields, that will then be used to create a form that is rendered in views.py.
+* The author model is made for the CreateView view that is used in views.py and holds the necessary information to validate its accompanied form.
+
+This data scheme allows for the management of users, posts, their comments and their likes. Users can make specific posts, comment and like their and others' posts and admins can use CRUD functionality to modify this content.
+
+## Security Features
+
+### User Authentication
+
+Django Allauth is used for authorization and authentication and provides a set of features for managing user authentication, registration, and account management.
+
+### Login Decorator
+
+account_login, account_signup, account_logout, post_detail, index.html: These views either involve operations related to user authentication and require authentication with the {% if user.is_authenticated %} decorator.
+This ensures that only authenticated users can access these views.
+
+### CSRF Protection
+
+CSRF tokens are generated for each user session, and are required when submitting forms during a POST request. When a user logs out, the session and associated CSRF token are invalidated, making it difficult for an attacker to forge a valid request using a copied URL.
+
+### Form Validation
+
+The post_form view validates form input using the form_valid class located in the author model. It checks for various validation errors e.g. data errors, instance errors, object-not-found errors.
+
+### Error pages
+
+Error pages are returned if a request is not successfully recieved.
+
+## Features
+* The home page contains a tailored navbar made with bootstrap html, to adjust to all devices and switch to a pop-out navbar when device screen size reqches a certain size.
+* The website features a comprehensive list of posts accompanied by detailed descriptions for each one.
+* User can make an account and login.
+* When logged in, users get access to extra features such as comments, likes and creating their own posts.
+* Admins can filter and modify content/posts.
+* Most user actions are accompanied by a corresponding message to ensure that users are promptly notified of any changes or updates.
+* Location and rent and price are shown on the homepage's post list to ensure that the user recieves the highest priority information first.
