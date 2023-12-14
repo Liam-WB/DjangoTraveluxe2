@@ -1,6 +1,6 @@
 # Traveluxe | Tests
 
-Return to [README.md]
+Return to [README.md](README.md)
 
 ---
 
@@ -117,3 +117,71 @@ The following pages were checked for lighthouse reports:
 ![LH4](md_images/LH4.png)
 ![LH5](md_images/LH5.png)
 ![LH6](md_images/LH6.png)
+
+## Bugs
+
+### Resolved Bugs
+
+#### Issue discovered where style changes were not applying to allauth form templates.
+
+I wanted some of the form input sections to be hidden/removed. The issue was resolved temporarily by adding inline styles rather than through the template as the template would not change.
+
+#### Issue discovered where a post could not be submitted due to a clash with user ID being used on the model.
+
+This was resolved by creating the Author class earlier on, which also includes the form_valid() now.
+
+### Unresolved Bugs
+
+#### Issue discovered where not all alert messages show up green.
+
+Some alerts show up green, whereas some do not. As the alerts still functioned properly, and alerts were not a priority at the time, I have not had the time to resolve this issue yet, or implement extra alerts, however with extra time I could have resolved this.
+
+## Features Tests
+
+All buttons, features, functions, forms, input boxes etc. were tested rigorously and properly throughout the development of Traveluxe.
+
+Here is a list of the features tested throughout the development of this project:
+
+### base.html (regardless of page, these should all function correctly)
+
+* Navbar (style, dimensions, visibility)
+* Navbar items (links, style, highlighting, changes based on authorisation)
+* Logo (style, link)
+* Navbar compact phone screen pop-out button (visibility, action)
+* Footer (style, dimensions, visibility)
+* Footer contents (readability, visibility)
+* Socials Icons (links, style, highlighting)
+* Alerts/messages (functioning properly, visibility)
+
+### index.html
+
+* Post List (style, dimensions, visibility, readability, links, link highlighting, information/detail, positioning, pagination)
+* Post Links (highlighting, visibility, readability)
+* Post Images (load times, visibility, visual aesthetic, positioning, suitability)
+* Like counter (functioning correctly, visibility, readability)
+* Date Time Field (functioning correctly, visibility, readability)
+
+### post_detail.html
+
+* Post Images (load times, visibility, visual aesthetic, positioning, suitability)
+* Like section (functioning correctly, visibility, readability, changes based on authorisation)
+* Comment section (functioning correctly, visibility, readability, changes based on authorisation)
+* Post content (visibility, readability)
+
+### post_form.html
+
+* Form Input Boxes (taking the right values, displaying the right values, validating correct characters used, readability, visibility, functioning as intended, required if they are required)
+* Submit Button (Redirecting to correct links, carrying out the correct processes, posting correct and accurate data, readability, visibility, highlighting)
+
+### account_login,logout,signup.html
+
+* Form Input Boxes (taking the right values, displaying the right values, validating correct characters used, readability, visibility, functioning as intended, required if they are required)
+* Submit Button (Redirecting to correct links, carrying out the correct processes, posting correct and accurate data, readability, visibility, highlighting)
+
+### Admin Panel
+
+* CRUD Functionality
+
+All items listed above passed their main objective of functioning as intended and contributing towards a positive user experience.
+
+Return to [README.md](README.md)

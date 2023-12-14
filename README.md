@@ -443,7 +443,7 @@ The site is now live.
 
 ## Testing
 
-Please see [TESTS.md] for all the detailed testing performed.
+Please see [TESTS.md](TESTS.md) for all the detailed testing performed.
 
 ## References
 
