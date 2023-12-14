@@ -242,3 +242,79 @@ Error pages are returned if a request is not successfully recieved.
 * Admins can filter and modify content/posts.
 * Most user actions are accompanied by a corresponding message to ensure that users are promptly notified of any changes or updates.
 * Location and rent and price are shown on the homepage's post list to ensure that the user recieves the highest priority information first.
+
+### Existing features
+
+* Home Page
+ * Displays a logo, nav bar and post list along with a footer at the bottom.
+
+![HomePage](md_images/homepage.png)
+
+* The logo was created with [BrandCrowd](https://www.brandcrowd.com).
+
+![Logo](md_images/logo.png)
+
+* The nav bar was made with bootstrap html and styled with generalistic CSS, and the same was done for the footer.
+
+![NavBarFull](md_images/navbarfull.png)
+
+* The nav bar is adapted to fit the needs of the viewport e.g. It is turned into a pop-out navbar if the viewport is too small.
+
+![NavBarPhone](md_images/phonenav.png.png)
+
+* The nav bar options changes once logged in, for account based faatures.
+
+![NavBar](md_images/navbar.png)
+
+* The footer uses similarly mentioned features as the navbar and was uilt the same way. The contents are centered for simplicity and the socials icons are highlighted when hovered over for visibility.
+
+![Footer](md_images/footer.png)
+
+* The post list is made by taking the post model we previously created, and paginating them at 3 per row, 6 per page for larger viewports, and fit to scroll per post for small viewports. In each post, the important details are highlighted including a brief excerpt which can be as detailed as the user likes, and rent price highlights as well as the afforementioned social media-like features that are presented here and in the post detail.
+
+![PostList](md_images/postlist.png)
+
+* When the post amount is over 6 on the website, you will be given the option to head to the next page.
+
+![Pagination](md_images/pagination.png)
+
+* The post detail uses all the information seen in the post list, however it is formatted on a larger page for the user to explore when a post has caught their attention. The post detail page also adds in a more detailed 'content' section allowing the user to give more detail about their property/home.
+
+![PostDetail](md_images/postdetail.png)
+
+* The comment section located directly below the post in the post detail page is visible to all that click on the post detail page, however you're only given the option to comment as an authorised, logged in user.
+
+![CommentSection](md_images/commentsection.png)
+
+* The user can create an account with the sign up form.
+
+![SignUpForm](md_images/signupform.png)
+
+* The user can log in with the log in form.
+
+![LogInForm](md_images/loginform.png)
+
+* Users can log out from the navbar if logged in and they are redirected to the homepage after.
+
+![LogOut](md_images/logout.png)
+
+* The user is met with alerts similar to the one listed below when perfoming actions like the one listed above.
+
+![Alert](md_images/alert.png)
+
+* When logged in, the user is given the option to make their own post.
+
+![CreatePostForm](md_images/createpostform.png)
+
+* Admins can use extra CRUD functionality within the django built in admin page. Here they can control and filter the data and categories in the website. Items can be viewed, added, modified and deleted.
+
+![Admin](md_images/admin.png)
+
+### Features left to implement
+
+* A user post deletion button.
+* Extra admin approval for filtering content e.g. approval of posts and listing prices.
+* Extra alerts, so the user is given an even easier experience of navigation through the wewbsite.
+* Contact, about us sections.
+* A related payment system to allow for these posts to create real relationships between business/hosts and customers/guests.
+* These features were not a priority for the project completion.
