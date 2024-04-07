@@ -8,7 +8,7 @@ from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from market.models import Author
 from django.urls import reverse_lazy
-
+from .forms import PostForm
 
 
 class PostList(generic.ListView):
@@ -87,9 +87,14 @@ class PostLike(View):
 
 class PostCreate(CreateView):
     model = Post
-    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status', 'slug', 'author')
+    form_class = PostForm
     template_name = "post_form.html"
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = form.instance.title.lower().replace(' ', '-')
+        return super().form_valid(form)
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
