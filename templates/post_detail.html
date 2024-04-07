@@ -116,6 +116,10 @@
             {% if is_post_owner %}
                 <h3>Manage Post:</h3>
                 <a href="{% url 'post_update_form' post.slug %}">Update Post</a>
+                <form method="post" action="{% url 'post_delete' post.slug %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Post</button>
+                </form>
             {% endif %}
         {% endif %}
             </div>

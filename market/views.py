@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views.generic.edit import CreateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import DeleteView
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -113,6 +113,10 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context['post'] = self.get_object()
         return context
+
+class PostDelete(LoginRequiredMixin, DeleteView):
+    model = Post
+    success_url = reverse_lazy('home')
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
