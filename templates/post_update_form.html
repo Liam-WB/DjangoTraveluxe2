@@ -1,17 +1,12 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 <div class="h-5 d-inline-block"></div>
     <div class="col-10 offset-md-1 d-flex justify-content-center form-spacer">
         <div class="col-9 text-white form-container">
             <div class="h-20 d-inline-block"></div>
-            <form method="POST" enctype="multipart/form-data">
- 
-                <!-- Security token -->
+            <form method="post" style="margin-top: 1.3em;">
+                {{ form | crispy }}  <!-- Use the 'form' variable passed from the view -->
                 {% csrf_token %}
-     
-                <!-- Using the formset -->
-                {{ form.as_p }}
-         
-                <input type="submit" value="Submit">
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
             </form>
             <div class="h-20 d-inline-block"></div>
         </div>

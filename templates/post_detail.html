@@ -113,8 +113,10 @@
                 {% endif %}
                 {% endif %}
         {% if user.is_authenticated %}
-        <h3>Manage Post:</h3>
-        <a href="{% url 'post_update_form' %}">Update Post</a>
+            {% if is_post_owner %}
+                <h3>Manage Post:</h3>
+                <a href="{% url 'post_update_form' post.slug %}">Update Post</a>
+            {% endif %}
         {% endif %}
             </div>
         </div>

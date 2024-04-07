@@ -28,6 +28,8 @@ class PostDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        is_post_owner = post.author == request.user
+
         return render(
             request,
             "post_detail.html",
@@ -36,6 +38,7 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
+                "is_post_owner": is_post_owner,
                 "comment_form": CommentForm()
             },
         )
@@ -90,9 +93,21 @@ class PostCreate(CreateView):
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status', 'slug', 'author')
+    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status')
     template_name = "post_update_form.html"
     success_url = reverse_lazy('home')
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Post, slug=self.kwargs['slug'])
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post'] = self.get_object()
+        return context
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
