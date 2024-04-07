@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views.generic.edit import CreateView
+from django.views.generic.edit import UpdateView
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -85,6 +86,12 @@ class PostCreate(CreateView):
     model = Post
     fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status', 'slug', 'author')
     template_name = "post_form.html"
+    success_url = reverse_lazy('home')
+
+class PostUpdate(LoginRequiredMixin, UpdateView):
+    model = Post
+    fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status', 'slug', 'author')
+    template_name = "post_update_form.html"
     success_url = reverse_lazy('home')
 
 

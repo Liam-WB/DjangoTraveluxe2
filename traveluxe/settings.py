@@ -29,12 +29,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['traveluxe2-d0488e7a8b6f.herokuapp.com', 'localhost',
-                 '8000-liam-wb-djangotraveluxe2-ta9jz8aabi.us2.codeanyapp.com']
+                 '8000-liam-wb-djangotraveluxe2-ta9jz8aabi.us2.codeanyapp.com',
+                 '8000-liam-wb-djangotraveluxe2-ykisspkbd4.us1.codeanyapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
 
