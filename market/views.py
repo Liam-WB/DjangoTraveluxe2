@@ -19,7 +19,6 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
-
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -42,6 +41,16 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        user = self.request.user
+        comments = post.comments.filter(approved=True).order_by('created_on')
+        owned_comments = comments.filter(author=user)
+        context['comments'] = comments
+        context['owned_comments'] = owned_comments
+        return context
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -135,4 +144,4 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(author=self.request.user)
+        return queryset.filter(name=self.request.user)
