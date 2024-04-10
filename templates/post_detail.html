@@ -97,11 +97,30 @@
                         {% endif %}
                     </div>
                 {% endfor %}
+                {% if updated_comment %}
+                    <div class="updated-comment">
+                        <p class="font-weight-bold">
+                            {{ updated_comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ updated_comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ updated_comment.body | linebreaks }}
+                    </div>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval

@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from market.models import Author
 from django.urls import reverse_lazy
 from .forms import PostForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -22,7 +23,7 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True, updated=False).order_by('created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -140,11 +141,23 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
     model = Comment
     form_class = CommentForm
     template_name = 'comment_update_form.html'
-    success_url = reverse_lazy('home')
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.filter(name=self.request.user)
+    def get_success_url(self):
+        return reverse('post_detail', args=[self.object.post.slug])
+
+    def form_valid(self, form):
+        updated_comment = form.save(commit=False)
+        updated_comment.email = self.request.user.email
+        updated_comment.name = self.request.user.username
+        updated_comment.approved = False
+        updated_comment.save()
+        messages.success(self.request, 'Your updated comment is awaiting approval.')
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post'] = self.object.post
+        return context
 
 class CommentDelete(View):
     def post(self, request, comment_id):
