@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import DeleteView
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from market.models import Author
