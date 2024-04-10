@@ -35,7 +35,8 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['traveluxe2-d0488e7a8b6f.herokuapp.com', 'localhost',
                  '8000-liam-wb-djangotraveluxe2-ta9jz8aabi.us2.codeanyapp.com',
-                 '8000-liam-wb-djangotraveluxe2-ykisspkbd4.us1.codeanyapp.com']
+                 '8000-liam-wb-djangotraveluxe2-ykisspkbd4.us1.codeanyapp.com',
+                 '8000-liam-wb-djangotraveluxe2-7ieqmi796u.us1.codeanyapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
 
