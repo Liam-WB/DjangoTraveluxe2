@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import DeleteView
 from django.views import generic, View
@@ -145,3 +145,12 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(name=self.request.user)
+
+class CommentDelete(View):
+    def post(self, request, comment_id):
+        comment = get_object_or_404(Comment, pk=comment_id)
+
+        if comment.name == request.user.username:
+            comment.delete()
+        
+        return redirect('post_detail', slug=comment.post.slug)
