@@ -2,6 +2,30 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<script>
+    function previewImage(input) {
+        var preview = document.getElementById('image-preview');
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
+
+<style>
+    #image-preview {
+        display: none;
+    }
+</style>
+
 <div class="h-5 d-inline-block"></div>
 <div class="col-10 offset-md-1 d-flex justify-content-center form-spacer">
     <div class="col-9 text-white form-container">
@@ -10,10 +34,10 @@
             {% csrf_token %}
             {{ form | crispy }}
 
-            <!-- Display the existing featured image -->
             {% if form.instance.featured_image %}
-            <img src="{{ form.instance.featured_image.url }}" width="100%">
+            <img id="image-preview" src="{{ form.instance.featured_image.url }}" alt="Image Preview" style="max-width: 200px;">
             {% endif %}
+            <br>
 
             <button type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
