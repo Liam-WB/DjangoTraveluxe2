@@ -104,6 +104,7 @@ class PostCreate(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = form.instance.title.lower().replace(' ', '-')
+        messages.success(self.request, 'Post created successfully.')
         return super().form_valid(form)
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
@@ -117,6 +118,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.save()
+        messages.success(self.request, 'Post updated successfully.')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -127,6 +129,10 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Post deleted successfully.')
+        return super().delete(request, *args, **kwargs)
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
@@ -165,5 +171,6 @@ class CommentDelete(View):
 
         if comment.name == request.user.username:
             comment.delete()
+            messages.success(request, 'Comment deleted successfully.')
         
         return redirect('post_detail', slug=comment.post.slug)
