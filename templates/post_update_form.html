@@ -1,15 +1,24 @@
-{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+
 <div class="h-5 d-inline-block"></div>
-    <div class="col-10 offset-md-1 d-flex justify-content-center form-spacer">
-        <div class="col-9 text-white form-container">
-            <div class="h-20 d-inline-block"></div>
-            <form method="post" style="margin-top: 1.3em;">
-                {{ form | crispy }}  <!-- Use the 'form' variable passed from the view -->
-                {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-            </form>
-            <div class="h-20 d-inline-block"></div>
-        </div>
+<div class="col-10 offset-md-1 d-flex justify-content-center form-spacer">
+    <div class="col-9 text-white form-container">
+        <div class="h-20 d-inline-block"></div>
+        <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form | crispy }}
+
+            <!-- Display the existing featured image -->
+            {% if form.instance.featured_image %}
+            <img src="{{ form.instance.featured_image.url }}" width="100%">
+            {% endif %}
+
+            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        <div class="h-20 d-inline-block"></div>
     </div>
+</div>
 <div class="h-5 d-inline-block"></div>
-{%endblock%}
+{% endblock %}
