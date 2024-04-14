@@ -228,11 +228,15 @@ CSRF tokens are generated for each user session, and are required when submittin
 
 ### Form Validation
 
-The post_form view validates form input using the form_valid class located in the author model. It checks for various validation errors e.g. data errors, instance errors, object-not-found errors.
+The post_form and post_update_form views validate form input using the form_valid class located in the author model. It checks for various validation errors e.g. data errors, instance errors, object-not-found errors.
 
 ### Error pages
 
 Error pages are returned if a request is not successfully recieved.
+
+### Validation messages
+
+Validation messages are returned next to individual input fields and above pages upon successful and unsuccessful CRUD operation actions performed by the user.
 
 ## Features
 
@@ -287,6 +291,12 @@ Error pages are returned if a request is not successfully recieved.
 
 ![CommentSection](md_images/commentsection.png)
 
+* The user can manage their post here. They are given the option to delete their comment, or update that individual comment, which will redirect the user to a prepopulated comment update form, using crispy forms.
+
+![CommentManage](md_images/comment-manage.png)
+
+![CommentUpdateForm](md_images/comment-update-form.png)
+
 * The user can create an account with the sign up form.
 
 ![SignUpForm](md_images/signupform.png)
@@ -301,11 +311,25 @@ Error pages are returned if a request is not successfully recieved.
 
 * The user is met with alerts similar to the one listed below when perfoming actions like the one listed above.
 
+* They'll be met with a green success message upon successful actions and yellow/cream messages upon failed actions along with a more specific message next to where the issue is located.
+
 ![Alert](md_images/alert.png)
+
+![Success](md_images/success.png)
+
+![Warning](md_images/warning.png)
 
 * When logged in, the user is given the option to make their own post.
 
 ![CreatePostForm](md_images/createpostform.png)
+
+* The user can also manage their post. This consists of a delete and update button that can both be clicked on by the user in the detail page, to perform their respective CRUD actions. Upon clicking delete, the post and it's information is removed from the database. Upon clicking the update button, the user is redirected to the post update form.
+
+![PostManage](md_images/post-manage.png)
+
+The post update form is made with django crispy forms and prepopulated with the current post information. The form holds the same data validation methods that the create post form uses, and updates the posts information upon submission.
+
+![PostUpdateForm](md_images/post-update-form.png)
 
 * Admins can use extra CRUD functionality within the django built in admin page. Here they can control and filter the data and categories in the website. Items can be viewed, added, modified and deleted.
 
@@ -313,7 +337,6 @@ Error pages are returned if a request is not successfully recieved.
 
 ### Features left to implement
 
-* A user post deletion button.
 * Extra admin approval for filtering content e.g. approval of posts and listing prices.
 * Extra alerts, so the user is given an even easier experience of navigation through the wewbsite.
 * Contact, about us sections.
