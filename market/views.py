@@ -10,6 +10,7 @@ from market.models import Author
 from django.urls import reverse_lazy
 from .forms import PostForm
 from django.contrib import messages
+from .errormixin import FormErrorMessageMixin
 
 
 class PostList(generic.ListView):
@@ -95,7 +96,7 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-class PostCreate(CreateView):
+class PostCreate(FormErrorMessageMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = "post_form.html"
@@ -104,10 +105,10 @@ class PostCreate(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = form.instance.title.lower().replace(' ', '-')
-        messages.success(self.request, 'Post created successfully.')
+        messages.success(self.request, 'Post created successfully.', extra_tags='success')
         return super().form_valid(form)
 
-class PostUpdate(LoginRequiredMixin, UpdateView):
+class PostUpdate(FormErrorMessageMixin, LoginRequiredMixin, UpdateView):
     model = Post
     fields = ('title', 'content', 'featured_image', 'excerpt', 'listing_currency', 'listing_timespan', 'listing_price', 'status')
     template_name = "post_update_form.html"
@@ -118,7 +119,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Post updated successfully.')
+        messages.success(self.request, 'Post updated successfully.', extra_tags='success')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -131,7 +132,7 @@ class PostDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, 'Post deleted successfully.')
+        messages.success(self.request, 'Post deleted successfully.', extra_tags='success')
         return super().delete(request, *args, **kwargs)
 
 
@@ -157,7 +158,7 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
         updated_comment.name = self.request.user.username
         updated_comment.approved = False
         updated_comment.save()
-        messages.success(self.request, 'Your updated comment is awaiting approval.')
+        messages.success(self.request, 'Your updated comment is awaiting approval.', extra_tags='success')
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -171,6 +172,6 @@ class CommentDelete(View):
 
         if comment.name == request.user.username:
             comment.delete()
-            messages.success(request, 'Comment deleted successfully.')
+            messages.success(request, 'Comment deleted successfully.', extra_tags='success')
         
         return redirect('post_detail', slug=comment.post.slug)
