@@ -12,6 +12,7 @@ def validate_image_size(value):
     if value.size > MAX_FILE_SIZE:
         raise ValidationError("File size too large. Max size is 1MB.")
 
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post

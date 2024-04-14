@@ -9,6 +9,7 @@ PRICE_INCREMENT = (("p/w", "per week"), ("p/m", "per month"))
 
 PRICE_CURRENCY = (("£", "GBP"), ("$", "USD"), ("€", "Euro"), ("¥", "Yen"), ("₩", "Won"), ("₺", "Lira"), ("₣", "Franc"), ("₹", "Rupee"), ("د.ك", "Dinar"))
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -54,6 +55,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"comment {self.body} by {self.name}"
+
 
 class Author(models.Model):
     name = models.CharField(max_length=200)

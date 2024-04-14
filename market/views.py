@@ -85,16 +85,16 @@ class PostDetail(View):
             },
         )
 
+
 class PostLike(View):
-    
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
 
 class PostCreate(FormErrorMessageMixin, CreateView):
     model = Post
@@ -107,6 +107,7 @@ class PostCreate(FormErrorMessageMixin, CreateView):
         form.instance.slug = form.instance.title.lower().replace(' ', '-')
         messages.success(self.request, 'Post created successfully.', extra_tags='success')
         return super().form_valid(form)
+
 
 class PostUpdate(FormErrorMessageMixin, LoginRequiredMixin, UpdateView):
     model = Post
@@ -127,6 +128,7 @@ class PostUpdate(FormErrorMessageMixin, LoginRequiredMixin, UpdateView):
         context['post'] = self.get_object()
         return context
 
+
 class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('home')
@@ -143,6 +145,7 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
+
 
 class CommentUpdate(LoginRequiredMixin, UpdateView):
     model = Comment
@@ -166,6 +169,7 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
         context['post'] = self.object.post
         return context
 
+
 class CommentDelete(View):
     def post(self, request, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id)
@@ -173,5 +177,4 @@ class CommentDelete(View):
         if comment.name == request.user.username:
             comment.delete()
             messages.success(request, 'Comment deleted successfully.', extra_tags='success')
-        
         return redirect('post_detail', slug=comment.post.slug)
